@@ -10,12 +10,14 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 app.use("/public", express.static(__dirname + "/public"));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-// Handle date value in POST. Can be unix, or utc.
+
 app.get('/api/whoami', function(req, res) {
+    // Init Vars.
+
+    // Send Response.
     res.send({ipaddress: req.ip, language: req.headers["accept-language"], software: req.headers["user-agent"]});
 });
 
